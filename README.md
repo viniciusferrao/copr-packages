@@ -13,16 +13,28 @@ EPEL, published via [Fedora COPR](https://copr.fedorainfracloud.org/coprs/vinici
 
 ## Build Environment
 
-- **Build server:** power.local.versatushpc.com.br (AlmaLinux 10.1, ppc64le)
-- **User:** ferrao (member of `wheel` and `mock` groups)
-- **Tools:** mock, copr-cli, fedpkg, rpmbuild
-- **COPR config:** ~/.config/copr (on the build server)
+### Prerequisites
 
-### Required packages on the build server
+- A RHEL/EL or Fedora build machine with ppc64le or x86_64 architecture
+- User must be a member of the `mock` group
+- **Tools:** mock, copr-cli, fedpkg, rpmbuild, rpmdevtools
 
 ```bash
 sudo dnf install mock copr-cli fedpkg rpm-build rpmdevtools
-sudo usermod -aG mock ferrao
+sudo usermod -aG mock $USER
+```
+
+### COPR API token
+
+`copr-cli` requires an API token stored at `~/.config/copr`. Obtain one from
+https://copr.fedorainfracloud.org/api/ and create the file with:
+
+```ini
+[copr-cli]
+login = <your_login>
+username = <your_copr_username>
+token = <your_api_token>
+copr_url = https://copr.fedorainfracloud.org
 ```
 
 ### Mock configs for local ppc64le builds

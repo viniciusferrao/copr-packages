@@ -41,11 +41,9 @@ repository: https://github.com/VersatusHPC/rpms-dhcp
 
 ## Targets
 
-| EL version | ppc64le | x86_64 | Notes |
-|------------|---------|--------|-------|
-| EL10 | Yes | Yes | Package removed from RHEL 10 |
-| EL9 | N/A | N/A | Available in base repos |
-| EL8 | N/A | N/A | Available in base repos |
+| EL version | ppc64le | x86_64 |
+|------------|---------|--------|
+| EL10 | Yes | Yes |
 
 ## Update procedure
 
