@@ -1,0 +1,45 @@
+diff --git a/qemu.spec b/qemu.spec
+index 147c221..48842be 100644
+--- a/qemu.spec
++++ b/qemu.spec
+@@ -62,10 +62,6 @@
+ 
+ %global user_dynamic 1
+ %global user_static 1
+-%if 0%{?rhel}
+-# EPEL/RHEL do not have required -static builddeps
+-%global user_static 0
+-%endif
+ 
+ %global have_kvm 0
+ %if 0%{?kvm_package:1}
+@@ -442,9 +438,9 @@ Version: 10.2.0
+ #global rcver rc4
+ %if 0%{?rcver:1}
+ %global rcstr -%{rcver}
+-Release: %autorelease -p -e %{rcver}
++Release: 0.1.%{rcver}%{?dist}
+ %else
+-Release: %autorelease
++Release: 1%{?dist}
+ %endif
+ 
+ Epoch: 2
+@@ -699,6 +695,9 @@ BuildRequires: igvm-devel
+ BuildRequires: glibc-static
+ BuildRequires: glib2-static
+ BuildRequires: zlib-static
++%if 0%{?rhel} && 0%{?rhel} < 10
++BuildRequires: pcre-static
++%endif
+ %endif
+ 
+ 
+@@ -3431,4 +3430,6 @@ popd
+ 
+ 
+ %changelog
+-%autochangelog
++* Tue Feb 17 2026 Vinicius Ferrão <vinicius@ferrao.net.br> - 2:10.2.0-1
++- Rebuild from Fedora 44 for EL9/EL10
++- Enable user-static subpackages on RHEL
