@@ -8,6 +8,7 @@ EPEL, published via [Fedora COPR](https://copr.fedorainfracloud.org/coprs/vinici
 | Package | Version | Targets | COPR |
 |---------|---------|---------|------|
 | [CDE](cde/) | 2.5.3 | EL8, EL9, EL10 (ppc64le + x86_64) | [viniciusferrao/cde](https://copr.fedorainfracloud.org/coprs/viniciusferrao/cde/) |
+| [DHCP](dhcp/) | 4.4.3-P1 | EL10 (ppc64le + x86_64) | [viniciusferrao/dhcp](https://copr.fedorainfracloud.org/coprs/viniciusferrao/dhcp/) |
 | [qemu-user-static](qemu-user-static/) | 10.2.0 | EL9, EL10 (ppc64le + x86_64) | [viniciusferrao/qemu-user-static](https://copr.fedorainfracloud.org/coprs/viniciusferrao/qemu-user-static/) |
 
 ## Build Environment
@@ -94,6 +95,12 @@ client.build_proxy.delete(BUILD_ID)"
 ~/cde-build/                    # CDE build results
 ├── results/{el10,el9,el8}-ppc64le/
 └── copr-logs/
+
+~/dhcp-build/                   # DHCP packaging
+└── rpms-dhcp/                  # git clone of VersatusHPC/rpms-dhcp
+    ├── dhcp.spec
+    ├── *.patch                 # Fedora/CentOS patches
+    └── build/SRPMS/
 
 ~/qemu-build/                   # qemu-user-static packaging
 ├── qemu/                       # fedpkg dist-git clone
