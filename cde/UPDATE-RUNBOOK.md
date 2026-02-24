@@ -276,7 +276,7 @@ subtle and catastrophic ways. The `/usr/dt` prefix is intentional and the
 | Target | Mock config |
 |--------|-------------|
 | EL10 ppc64le | `alma+epel-10-ppc64le` |
-| EL9 ppc64le | `rocky+epel-9-ppc64le` |
+| EL9 ppc64le | `alma+epel-9-ppc64le` |
 | EL8 ppc64le | `alma+epel-8-ppc64le` |
 
 ## Adding a new EL version

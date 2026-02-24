@@ -43,7 +43,7 @@ copr_url = https://copr.fedorainfracloud.org
 | Target | Mock config |
 |--------|-------------|
 | EL10 ppc64le | `alma+epel-10-ppc64le` |
-| EL9 ppc64le | `rocky+epel-9-ppc64le` |
+| EL9 ppc64le | `alma+epel-9-ppc64le` |
 | EL8 ppc64le | `alma+epel-8-ppc64le` |
 
 x86_64 builds are done via COPR (cross-builds not supported in mock on ppc64le).
