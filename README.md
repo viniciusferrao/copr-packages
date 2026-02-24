@@ -9,6 +9,7 @@ EPEL, published via [Fedora COPR](https://copr.fedorainfracloud.org/coprs/vinici
 |---------|---------|---------|------|
 | [CDE](cde/) | 2.5.3 | EL8, EL9, EL10 (ppc64le + x86_64) | [viniciusferrao/cde](https://copr.fedorainfracloud.org/coprs/viniciusferrao/cde/) |
 | [DHCP](dhcp/) | 4.4.3-P1 | EL10 (ppc64le + x86_64) | [viniciusferrao/dhcp](https://copr.fedorainfracloud.org/coprs/viniciusferrao/dhcp/) |
+| [po4a](po4a/) | 0.74 | EL9, EL10 (ppc64le + x86_64) | [viniciusferrao/po4a](https://copr.fedorainfracloud.org/coprs/viniciusferrao/po4a/) |
 | [qemu-user-static](qemu-user-static/) | 10.2.0 | EL9, EL10 (ppc64le + x86_64) | [viniciusferrao/qemu-user-static](https://copr.fedorainfracloud.org/coprs/viniciusferrao/qemu-user-static/) |
 
 ## Build Environment
@@ -113,6 +114,14 @@ client.build_proxy.delete(BUILD_ID)"
     ├── dhcp.spec
     ├── *.patch                 # Fedora/CentOS patches
     └── build/SRPMS/
+
+~/po4a-build/                   # po4a packaging
+├── po4a/                       # fedpkg dist-git clone (rawhide)
+│   ├── po4a.spec               # patched spec
+│   ├── po4a-0.74.tar.gz        # source tarball
+│   ├── po4a-0.74-no-syntax-keyword-try.patch
+│   └── po4a-0.74-fix-perlio-encoding.patch
+└── copr-packages/              # GitHub docs repo clone
 
 ~/qemu-build/                   # qemu-user-static packaging
 ├── qemu/                       # fedpkg dist-git clone
