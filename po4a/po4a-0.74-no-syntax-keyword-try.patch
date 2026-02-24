@@ -1,0 +1,25 @@
+--- a/lib/Locale/Po4a/Text.pm	2026-02-23 21:50:34.554427657 -0300
++++ b/lib/Locale/Po4a/Text.pm	2026-02-23 21:50:46.883949716 -0300
+@@ -54,7 +54,6 @@
+ 
+ use Locale::Po4a::Common qw(wrap_mod dgettext);
+ use YAML::Tiny;
+-use Syntax::Keyword::Try;
+ 
+ =head1 OPTIONS ACCEPTED BY THIS MODULE
+ 
+@@ -632,11 +631,10 @@
+ 
+     my $yamlarray;    # the parsed YFM content
+     my $yamlres;      # containing the parse error, if any
+-    try {
++    eval {
+         $yamlarray = YAML::Tiny->read_string($yfm);
+-    } catch {
+-        $yamlres = $@;
+-    }
++    };
++    $yamlres = $@ if $@;
+ 
+     if ( defined($yamlres) ) {
+         if ($yfm_lenient) {

@@ -1,0 +1,19 @@
+--- a/lib/Locale/Po4a/TransTractor.pm	2026-02-23 23:51:27.723242914 -0300
++++ b/lib/Locale/Po4a/TransTractor.pm	2026-02-23 23:52:11.171556651 -0300
+@@ -525,13 +525,13 @@
+             File::Path::mkpath( $dir, 0, 0755 )    # Croaks on error
+               if ( length($dir) && !-e $dir );
+         }
+-        open( $fh, ">:encoding($charset)", $filename )
++        open( $fh, ">:raw", $filename )
+           or croak wrap_msg( dgettext( "po4a", "Cannot write to %s: %s" ), $filename, $! );
+     }
+ 
+-    map { print $fh $_ } $self->docheader();
++    map { print $fh Encode::encode($charset, $_, Encode::FB_DEFAULT) } $self->docheader();
+     eval {
+-        map { print $fh $_ } @{ $self->{TT}{doc_out} };
++        map { print $fh Encode::encode($charset, $_, Encode::FB_DEFAULT) } @{ $self->{TT}{doc_out} };
+ 
+         # we use the "eval {} or do {}" approach to deal with exceptions, cf https://perlmaven.com/fatal-errors-in-external-modules
+         # but we want it to fail only if there is an error. It seems to be some cases where "map" returns false even if there is no error.
